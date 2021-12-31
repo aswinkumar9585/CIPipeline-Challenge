@@ -37,7 +37,7 @@ pipeline{
          }  
          success {   
             echo "========Deploying executed successfully========"
-            mail bcc: '', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER}  URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: 'aswinkumar6493@gmail.com', mimeType: 'text/html', replyTo: '', subject: "success": Project name -> ${env.JOB_NAME}", to: "aswinkumar6493@gmail.com";
+            mail bcc: '', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER}  <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: 'aswinkumar6493@gmail.com', mimeType: 'text/html', replyTo: '', subject: "success: Project name -> ${env.JOB_NAME}", to: "aswinkumar6493@gmail.com";
          }  
          failure {  
              mail bcc: '', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> Stage Name: $last_started <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: 'aswinkumar6493@gmail.com', mimeType: 'text/html', replyTo: '', subject: "ERROR CI: Project name -> ${env.JOB_NAME}", to: "aswinkumar6493@gmail.com";  
