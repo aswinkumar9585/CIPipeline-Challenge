@@ -47,6 +47,26 @@ pipeline{
                 waitForQualityGate abortPipeline: true
             }
         }
+     stage('collect artifact'){
+        steps{
+           archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
+         }
+         }
+     stage('deploy to artifactory')
+     {
+     steps{
+      rtUpload (
+         serverId: 'artifactory-server',
+            spec: '''{
+                 "files": [
+            {
+              "pattern": "target/*.jar",
+              "target": "mav-local-art"
+            }
+         ]
+    }''',
+    )
+}}
     
     }
     post {  
